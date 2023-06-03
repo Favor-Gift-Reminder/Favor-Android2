@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.Search.SearchTabFragment">
+    android:orientation="vertical"
+    tools:context=".UI.Search.SearchTabFragment"
+    tools:ignore="ContentDescription, HardcodedText">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="56dp"
+        app:tabIndicator="@drawable/selector_indicator"
+        app:tabIndicatorColor="@color/icon"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="2.5dp"
+        app:tabPaddingStart="10dp"
+        app:tabSelectedTextColor="@color/icon"
+        app:tabTextAppearance="@style/Theme.Favor.Bold"
+        app:tabTextColor="@color/line2">
 
-</FrameLayout>
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  선물  " />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  유저  " />
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/container"
+        android:name="com.appcenter.favor.UI.Search.SearchGiftFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
