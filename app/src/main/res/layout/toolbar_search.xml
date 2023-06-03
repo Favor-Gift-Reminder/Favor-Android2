@@ -23,24 +23,15 @@
         android:background="@drawable/poly_round_rectangle"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="-8dp"
-            android:padding="10dp"
-            android:src="@drawable/icon_default_search"
-            app:tint="@color/subtext" />
-
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="14sp"
             android:background="@drawable/tmp_transparent"
             android:imeOptions="actionSearch"
             android:importantForAutofill="no"
             android:inputType="text"
-            tools:ignore="LabelFor" />
+            android:paddingStart="14dp"
+            tools:ignore="LabelFor,RtlSymmetry" />
 
         <ImageView
             android:layout_width="40dp"
