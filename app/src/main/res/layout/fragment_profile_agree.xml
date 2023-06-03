@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".UI.Profile.ProfileAgreeFragment"
+    tools:ignore="ContentDescription, HardcodedText, RtlSymmetry">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/icon_default_friend"
+            app:tint="@color/icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="72dp"
+            android:fontFamily="@font/pretendard_bold"
+            android:gravity="center"
+            android:text="\n환영합니다"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp">
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:button="@drawable/selector_checkbox"
+            android:paddingStart="16dp"
+            android:text="약관 전체동의" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:button="@drawable/selector_checkbox"
+                android:paddingStart="16dp"
+                android:text="페이버 운영약관 동의 (필수)" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="보기"
+                android:textColor="@color/main" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:button="@drawable/selector_checkbox"
+                android:paddingStart="16dp"
+                android:text="개인정보 수집 및 이용 동의 (필수)" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="보기"
+                android:textColor="@color/main" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/poly_round_border"
+            android:backgroundTint="@color/divider"
+            android:fontFamily="@font/pretendard_bold"
+            android:gravity="center"
+            android:hint="확인" />
+    </LinearLayout>
+</LinearLayout>

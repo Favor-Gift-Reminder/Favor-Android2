@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".UI.Profile.ProfileCreateFragment"
+    tools:ignore="ContentDescription, HardcodedText">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_b_t_i" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp">
+
+        <FrameLayout
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="56dp"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/tmp_empty_profile" />
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end|bottom"
+                android:src="@drawable/tmp_icon_gallery"
+                android:translationX="4dp"
+                android:translationY="4dp" />
+        </FrameLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:background="@drawable/selector_edittext_focused"
+            android:hint="이름 (최대 20자)"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="20"
+            android:paddingBottom="16dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/selector_edittext_focused"
+            android:hint="\@ 아이디 (최대 20자)"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="20"
+            android:paddingBottom="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="문자, 숫자, 밑줄, 마침표만 사용할 수 있습니다."
+            android:textColor="@color/line2"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/poly_round_border"
+            android:backgroundTint="@color/divider"
+            android:fontFamily="@font/pretendard_bold"
+            android:gravity="center"
+            android:hint="다음" />
+    </LinearLayout>
+</LinearLayout>
