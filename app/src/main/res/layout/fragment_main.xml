@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".UI.Main.MainFragment"
+    tools:ignore="ContentDescription, HardcodedText">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/container"
+        android:name="com.appcenter.favor.UI.Main.MainHomeFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_main_home" />
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:fabAlignmentMode="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:weightSum="10">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/nav"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="9"
+                android:background="@drawable/tmp_transparent"
+                app:itemBackground="@android:color/transparent"
+                app:itemIconTint="@drawable/selector_menu"
+                app:labelVisibilityMode="unlabeled"
+                app:menu="@menu/menu_main" />
+        </LinearLayout>
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:backgroundTint="@color/white"
+        android:foreground="@drawable/icon_default_add"
+        android:foregroundTint="@color/main"
+        app:borderWidth="0dp"
+        app:elevation="0dp"
+        app:layout_anchor="@id/bar"
+        app:rippleColor="@color/white" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
