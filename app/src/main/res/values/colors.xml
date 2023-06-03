@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="main">#FF5862</color>
+    <color name="sub">#0B2447</color>
+
+    <color name="card">#FAFAFA</color>
+    <color name="button">#F8F8F8</color>
+    <color name="backgr">#F5F5F5</color>
+
+    <color name="divider">#EEEEEE</color>
+    <color name="line3">#E0E0E0</color>
+    <color name="line2">#BDBDBD</color>
+    <color name="line1">#424242</color>
+
+    <color name="explain">#9E9E9E</color>
+    <color name="subtext">#616161</color>
+    <color name="title">#424242</color>
+    <color name="icon">#222222</color>
+</resources>
