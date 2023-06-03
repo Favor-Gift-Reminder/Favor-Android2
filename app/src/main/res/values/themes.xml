@@ -1,0 +1,18 @@
+<resources>
+    <style name="Theme.Favor" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="colorControlNormal">@color/divider</item>
+        <item name="colorControlHighlight">@android:color/transparent</item>
+        <item name="colorControlActivated">@color/white</item>
+
+        <item name="android:windowLightStatusBar">true</item>
+
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/icon</item>
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+        <item name="android:textColorHint">@color/explain</item>
+    </style>
+</resources>
