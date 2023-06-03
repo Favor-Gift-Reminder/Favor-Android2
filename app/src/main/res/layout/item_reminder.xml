@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/poly_round_rectangle"
+    android:orientation="horizontal"
+    android:padding="24dp"
+    android:layout_marginBottom="10dp"
+    tools:ignore="ContentDescription, HardcodedText">
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/tmp_empty_profile" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pretendard_bold"
+            android:lines="1"
+            android:text="Title"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:text="n일 전" />
+
+    </LinearLayout>
+
+    <Switch
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:gravity="center"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+</LinearLayout>
