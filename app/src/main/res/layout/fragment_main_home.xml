@@ -20,9 +20,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="68dp"
             android:orientation="vertical"
-            android:paddingHorizontal="20dp">
+            android:paddingHorizontal="20dp"
+            android:paddingBottom="68dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -43,6 +43,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:paddingHorizontal="5dp"
+                    android:paddingVertical="2dp"
                     android:text="더보기"
                     android:textColor="@color/subtext"
                     android:textSize="12sp" />
@@ -115,7 +117,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="30dp"/>
+                android:layout_marginBottom="30dp" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
