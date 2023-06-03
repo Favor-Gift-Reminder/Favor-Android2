@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".UI.LogIn.LoginFragment"
+    tools:ignore="ContentDescription, HardcodedText">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_b_t_i" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:background="@drawable/selector_edittext_focused"
+            android:hint="이메일"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:paddingBottom="16dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/selector_edittext_focused"
+            android:hint="비밀번호"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:paddingBottom="16dp" />
+
+        <TextView
+            android:id="@+id/btn_login_favor"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="56dp"
+            android:background="@drawable/poly_round_border"
+            android:backgroundTint="@color/divider"
+            android:fontFamily="@font/pretendard_bold"
+            android:gravity="center"
+            android:hint="확인" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:text="소셜 로그인"
+            android:textColor="@color/subtext"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginHorizontal="10dp"
+                android:src="@drawable/icon_social_kakao" />
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginHorizontal="10dp"
+                android:src="@drawable/icon_social_naver" />
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginHorizontal="10dp"
+                android:src="@drawable/icon_social_apple" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/btn_find_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:gravity="bottom"
+            android:text="비밀번호를 잊어버렸어요"
+            android:textColor="@color/subtext"
+            android:textSize="14sp" />
+    </LinearLayout>
+</LinearLayout>
