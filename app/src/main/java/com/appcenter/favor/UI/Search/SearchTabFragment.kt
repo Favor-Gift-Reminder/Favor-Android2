@@ -16,7 +16,7 @@ class SearchTabFragment : Fragment() {
     ): View {
         binding = FragmentSearchTabBinding.inflate(inflater, container, false)
 
-        for (i: Int in 0 until binding.tab.tabCount)
+        for (i in 0 until binding.tab.tabCount)
             TooltipCompat.setTooltipText(binding.tab.getTabAt(i)!!.view, null)
 
         binding.root.setOnClickListener {}

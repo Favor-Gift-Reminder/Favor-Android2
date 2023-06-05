@@ -29,5 +29,6 @@
         android:layout_height="44dp"
         android:fontFamily="@font/pretendard_bold"
         android:gravity="center"
+        android:textColorHint="@color/line2"
         android:textSize="18sp" />
 </LinearLayout>
