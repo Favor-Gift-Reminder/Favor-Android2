@@ -2,14 +2,15 @@ package com.appcenter.favor.UI.Main
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.TooltipCompat
+import androidx.fragment.app.Fragment
 import com.appcenter.favor.MainActivity
 import com.appcenter.favor.R
+import com.appcenter.favor.UI.Reminder.ReminderFragment
 import com.appcenter.favor.UI.Search.SearchFragment
 import com.appcenter.favor.databinding.FragmentMainHomeBinding
 
@@ -47,7 +48,14 @@ class MainHomeFragment : Fragment() {
             .add(binding.containerTimeline.id, MainHomeBlankFragment(R.drawable.tmp_back_rectangle, "선물 기록이 없습니다."))
             .commit()
 
-        for(i: Int in 0 until binding.tab.tabCount)
+        binding.btnFilter.setOnClickListener { MainHomeFilterFragment().show(childFragmentManager, "") }
+        binding.btnMore.setOnClickListener {
+            parentContext.supportFragmentManager.beginTransaction()
+                .add(parentContext.binding.container.id, ReminderFragment())
+                .commit()
+        }
+
+        for(i in 0 until binding.tab.tabCount)
             TooltipCompat.setTooltipText(binding.tab.getTabAt(i)!!.view, null)
 
         init_toolbar()
