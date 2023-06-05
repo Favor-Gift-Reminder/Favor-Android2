@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginEnd="10dp"
     android:background="@drawable/poly_round_rectangle"
     android:backgroundTint="@color/button"
-    android:fontFamily="@font/pretendard_bold"
     android:gravity="center"
+    android:orientation="horizontal"
     android:paddingHorizontal="16dp"
-    android:paddingVertical="8dp"
-    android:textSize="12sp" />
+    android:paddingVertical="8dp">
+
+    <ImageView
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="6dp"
+        android:visibility="gone"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_bold"
+        android:textSize="12sp" />
+
+</LinearLayout>
