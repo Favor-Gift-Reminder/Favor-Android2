@@ -93,8 +93,7 @@
                 app:tabRippleColor="@color/white"
                 app:tabSelectedTextColor="@color/icon"
                 app:tabTextAppearance="@style/Theme.Favor"
-                app:tabTextColor="@color/line2"
-                app:tabUnboundedRipple="false">
+                app:tabTextColor="@color/line2">
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
