@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.widget.TooltipCompat
 import com.appcenter.favor.MainActivity
 import com.appcenter.favor.R
 import com.appcenter.favor.UI.Search.SearchFragment
@@ -45,6 +46,9 @@ class MainHomeFragment : Fragment() {
             .add(binding.containerUpcoming.id, MainHomeBlankFragment(R.drawable.tmp_back_rectangle, "이벤트가 없습니다."))
             .add(binding.containerTimeline.id, MainHomeBlankFragment(R.drawable.tmp_back_rectangle, "선물 기록이 없습니다."))
             .commit()
+
+        for(i: Int in 0 until binding.tab.tabCount)
+            TooltipCompat.setTooltipText(binding.tab.getTabAt(i)!!.view, null)
 
         init_toolbar()
         binding.root.setOnClickListener{}
