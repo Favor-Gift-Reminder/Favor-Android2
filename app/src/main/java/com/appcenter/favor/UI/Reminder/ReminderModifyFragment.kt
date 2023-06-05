@@ -1,60 +1,53 @@
 package com.appcenter.favor.UI.Reminder
 
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.appcenter.favor.R
+import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.Fragment
+import com.appcenter.favor.MainActivity
+import com.appcenter.favor.databinding.FragmentReminderModifyBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ReminderModifyFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ReminderModifyFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var binding: FragmentReminderModifyBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private lateinit var parentContext: MainActivity
+    private lateinit var onBackPressed: OnBackPressedCallback
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        parentContext = context as MainActivity
+
+        onBackPressed = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                parentFragmentManager.beginTransaction()
+                    .remove(this@ReminderModifyFragment)
+                    .commit()
+            }
         }
+        requireActivity().onBackPressedDispatcher.addCallback(this, onBackPressed)
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        onBackPressed.remove()
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_reminder_modify, container, false)
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?,
+    ): View {
+        binding = FragmentReminderModifyBinding.inflate(inflater, container, false)
+
+        init_toolbar()
+        binding.root.setOnClickListener{}
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ReminderModifyFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ReminderModifyFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun init_toolbar() {
+        binding.toolbar.back.setOnClickListener { onBackPressed.handleOnBackPressed() }
+        binding.toolbar.title.text = "새 리마인더"
+        binding.toolbar.sub1.hint = "등록"
     }
 }
