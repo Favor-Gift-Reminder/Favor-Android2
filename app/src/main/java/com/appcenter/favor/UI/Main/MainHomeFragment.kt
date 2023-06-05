@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import com.appcenter.favor.MainActivity
 import com.appcenter.favor.R
+import com.appcenter.favor.UI.Search.SearchFragment
 import com.appcenter.favor.databinding.FragmentMainHomeBinding
 
 class MainHomeFragment : Fragment() {
@@ -52,5 +53,10 @@ class MainHomeFragment : Fragment() {
 
     private fun init_toolbar() {
         binding.toolbar.sub1.setImageResource(R.drawable.icon_default_search)
+        binding.toolbar.sub1.setOnClickListener {
+            parentContext.supportFragmentManager.beginTransaction()
+                .add(parentContext.binding.container.id, SearchFragment())
+                .commit()
+        }
     }
 }
