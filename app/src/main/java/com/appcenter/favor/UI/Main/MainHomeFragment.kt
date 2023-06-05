@@ -23,7 +23,7 @@ class MainHomeFragment : Fragment() {
 
         onBackPressed = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-
+                parentContext.finish()
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(this, onBackPressed)
