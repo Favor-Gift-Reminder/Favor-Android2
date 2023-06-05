@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.Search.SearchUserFragment">
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp"
+    tools:context=".UI.Search.SearchUserFragment"
+    tools:ignore="ContentDescription, HardcodedText">
 
-    <!-- TODO: Update blank fragment layout -->
+    <include layout="@layout/component_weight_3" />
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="32dp"
+        android:src="@drawable/tmp_empty_profile" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/subtext"
+        android:textSize="14sp" />
+
+    <include layout="@layout/component_weight_5" />
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+        android:layout_height="56dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/poly_round_border"
+        android:backgroundTint="@color/main"
+        android:fontFamily="@font/pretendard_bold"
+        android:gravity="center"
+        android:text="친구 해요!"
+        android:textColor="@color/white" />
+</LinearLayout>
