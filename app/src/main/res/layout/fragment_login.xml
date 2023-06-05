@@ -83,7 +83,7 @@
                 android:src="@drawable/icon_social_apple" />
         </LinearLayout>
 
-        <include layout="@layout/component_weight1" />
+        <include layout="@layout/component_weight_2" />
 
         <TextView
             android:id="@+id/btn_find_password"

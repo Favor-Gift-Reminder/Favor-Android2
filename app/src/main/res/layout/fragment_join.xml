@@ -92,7 +92,7 @@
                 android:translationX="-28dp" />
         </LinearLayout>
 
-        <include layout="@layout/component_weight1" />
+        <include layout="@layout/component_weight_2" />
 
         <TextView
             android:id="@+id/btn_next"
