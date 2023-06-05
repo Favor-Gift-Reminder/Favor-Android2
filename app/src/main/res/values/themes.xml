@@ -19,4 +19,12 @@
     <style name="Theme.Favor.Bold" parent="Theme.Favor">
         <item name="android:fontFamily">@font/pretendard_bold</item>
     </style>
+
+    <style name="Theme.Favor.ModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/poly_upper_round_rectangle</item>
+    </style>
+
+    <style name="Theme.Favor.BottomSheet" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Theme.Favor.ModalStyle</item>
+    </style>
 </resources>
