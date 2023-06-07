@@ -1,4 +1,4 @@
-package com.appcenter.favor.UI.Main
+package com.appcenter.favor.UI.Mypage
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

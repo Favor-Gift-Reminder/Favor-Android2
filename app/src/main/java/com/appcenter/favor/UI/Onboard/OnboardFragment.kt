@@ -1,4 +1,4 @@
-package com.appcenter.favor.UI.OnBoard
+package com.appcenter.favor.UI.Onboard
 
 import android.content.Context
 import android.os.Bundle

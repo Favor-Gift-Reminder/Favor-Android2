@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".UI.OnBoard.OnboardPageFragment"
+    tools:context=".UI.Onboard.OnboardPageFragment"
     tools:ignore="ContentDescription,HardcodedText,UseCompoundDrawables">
 
     <ImageView

@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".UI.OnBoard.OnboardFragment"
+    tools:context=".UI.Onboard.OnboardFragment"
     tools:ignore="ContentDescription, HardcodedText">
 
     <LinearLayout

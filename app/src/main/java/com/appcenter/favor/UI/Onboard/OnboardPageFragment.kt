@@ -1,4 +1,4 @@
-package com.appcenter.favor.UI.OnBoard
+package com.appcenter.favor.UI.Onboard
 
 import android.os.Bundle
 import android.view.LayoutInflater

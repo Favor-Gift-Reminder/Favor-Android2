@@ -11,6 +11,8 @@ import androidx.activity.OnBackPressedCallback
 import androidx.core.view.forEach
 import com.appcenter.favor.MainActivity
 import com.appcenter.favor.R
+import com.appcenter.favor.UI.Home.HomeFragment
+import com.appcenter.favor.UI.Mypage.MainMypageFragment
 import com.appcenter.favor.databinding.FragmentMainBinding
 import com.google.android.material.shape.CornerFamily
 import com.google.android.material.shape.MaterialShapeDrawable
@@ -43,7 +45,9 @@ class MainFragment : Fragment() {
     ): View {
         binding = FragmentMainBinding.inflate(inflater, container, false)
 
+        binding.fab.setOnClickListener {
 
+        }
 
         init_appBar()
         binding.root.setOnClickListener{}
@@ -66,7 +70,7 @@ class MainFragment : Fragment() {
             if(binding.nav.selectedItemId == it.itemId) return@setOnItemSelectedListener false
             childFragmentManager.beginTransaction()
                 .replace(binding.container.id, when(it.itemId) {
-                    R.id.menu_home -> MainHomeFragment()
+                    R.id.menu_home -> HomeFragment()
                     R.id.menu_mypage -> MainMypageFragment()
                     else -> null
                 }!!).commit()

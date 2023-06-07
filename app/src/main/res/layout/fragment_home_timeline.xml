@@ -7,5 +7,5 @@
     android:layout_margin="-2.5dp"
     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
     app:spanCount="2"
-    tools:context=".UI.Main.MainHomeTimelineFragment"
+    tools:context=".UI.Home.HomeTimelineFragment"
     tools:listitem="@layout/item_timeline" />

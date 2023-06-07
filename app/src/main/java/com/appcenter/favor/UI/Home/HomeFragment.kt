@@ -1,4 +1,4 @@
-package com.appcenter.favor.UI.Main
+package com.appcenter.favor.UI.Home
 
 import android.content.Context
 import android.os.Bundle
@@ -12,10 +12,10 @@ import com.appcenter.favor.MainActivity
 import com.appcenter.favor.R
 import com.appcenter.favor.UI.Reminder.ReminderFragment
 import com.appcenter.favor.UI.Search.SearchFragment
-import com.appcenter.favor.databinding.FragmentMainHomeBinding
+import com.appcenter.favor.databinding.FragmentHomeBinding
 
-class MainHomeFragment : Fragment() {
-    private lateinit var binding: FragmentMainHomeBinding
+class HomeFragment : Fragment() {
+    private lateinit var binding: FragmentHomeBinding
 
     private lateinit var parentContext: MainActivity
     private lateinit var onBackPressed: OnBackPressedCallback
@@ -41,14 +41,14 @@ class MainHomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        binding = FragmentMainHomeBinding.inflate(inflater, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         childFragmentManager.beginTransaction()
-            .add(binding.containerUpcoming.id, MainHomeBlankFragment(R.drawable.tmp_back_rectangle, "이벤트가 없습니다."))
-            .add(binding.containerTimeline.id, MainHomeBlankFragment(R.drawable.tmp_back_rectangle, "선물 기록이 없습니다."))
+            .add(binding.containerUpcoming.id, HomeBlankFragment(R.drawable.tmp_back_rectangle, "이벤트가 없습니다."))
+            .add(binding.containerTimeline.id, HomeBlankFragment(R.drawable.tmp_back_rectangle, "선물 기록이 없습니다."))
             .commit()
 
-        binding.btnFilter.setOnClickListener { MainHomeFilterFragment().show(childFragmentManager, "") }
+        binding.btnFilter.setOnClickListener { HomeFilterFragment().show(childFragmentManager, "") }
         binding.btnMore.setOnClickListener {
             parentContext.supportFragmentManager.beginTransaction()
                 .add(parentContext.binding.container.id, ReminderFragment())
