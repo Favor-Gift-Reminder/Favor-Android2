@@ -46,9 +46,9 @@ class OnboardFragment : Fragment() {
         binding = FragmentOnboardBinding.inflate(inflater, container, false)
 
         pages = arrayListOf(
-            OnboardPageFragment(R.drawable.tmp_back_rectangle, "특별한 선물을 받은\n오늘의 감정을 기록해요"),
-            OnboardPageFragment(R.drawable.tmp_back_rectangle, "기억하고 싶은 기념일\n페이버가 대신 챙겨드려요"),
-            OnboardPageFragment(R.drawable.tmp_back_rectangle, "고마운 마음을 담아\n메시지를 전달해요")
+            OnboardPageFragment(R.drawable.tmp_back_rectangle_8, "특별한 선물을 받은\n오늘의 감정을 기록해요"),
+            OnboardPageFragment(R.drawable.tmp_back_rectangle_8, "기억하고 싶은 기념일\n페이버가 대신 챙겨드려요"),
+            OnboardPageFragment(R.drawable.tmp_back_rectangle_8, "고마운 마음을 담아\n메시지를 전달해요")
         )
 
         binding.btn.setOnClickListener {

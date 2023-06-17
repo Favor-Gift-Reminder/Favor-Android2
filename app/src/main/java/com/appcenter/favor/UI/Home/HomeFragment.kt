@@ -44,8 +44,8 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         childFragmentManager.beginTransaction()
-            .add(binding.containerUpcoming.id, HomeBlankFragment(R.drawable.tmp_back_rectangle, "이벤트가 없습니다."))
-            .add(binding.containerTimeline.id, HomeBlankFragment(R.drawable.tmp_back_rectangle, "선물 기록이 없습니다."))
+            .add(binding.containerUpcoming.id, HomeBlankFragment(R.drawable.tmp_back_rectangle_8, "이벤트가 없습니다."))
+            .add(binding.containerTimeline.id, HomeBlankFragment(R.drawable.tmp_back_rectangle_8, "선물 기록이 없습니다."))
             .commit()
 
         binding.btnFilter.setOnClickListener { HomeFilterFragment().show(childFragmentManager, "") }
