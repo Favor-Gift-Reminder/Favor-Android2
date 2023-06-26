@@ -3,7 +3,7 @@ package com.appcenter.favor
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
-import com.appcenter.favor.UI.OnBoard.OnboardFragment
+import com.appcenter.favor.UI.Onboard.OnboardFragment
 import com.appcenter.favor.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
