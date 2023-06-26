@@ -10,6 +10,9 @@ import androidx.fragment.app.Fragment
 import com.appcenter.favor.MainActivity
 import com.appcenter.favor.UI.Profile.ProfileCreateFragment
 import com.appcenter.favor.databinding.FragmentJoinBinding
+import com.nise.favor_android.Interface.ResponseDTO.User
+import com.nise.favor_android.Login.LoginRequest
+import com.nise.favor_android.Repository.userRepository
 
 class JoinFragment : Fragment() {
     private lateinit var binding: FragmentJoinBinding
@@ -40,12 +43,24 @@ class JoinFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentJoinBinding.inflate(inflater, container, false)
-
+        var repo = userRepository()
         binding.btnNext.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .add(parentContext.binding.container.id, ProfileCreateFragment())
-                .commit()
+            val loginRequest = LoginRequest(
+                binding.email.text.toString().trim(),
+                binding.password.text.toString().trim()
+            )
+            repo.postRegisterForm(loginRequest,object : userRepository.GetDataCallBack<User>{
+                override fun onSuccess(data: User?) {
+                    parentFragmentManager.beginTransaction()
+                        .add(parentContext.binding.container.id, ProfileCreateFragment())
+                        .commit()
+                }
+                override fun onFailure() {
+                }
+            })
+
         }
+
 
         init_toolbar()
         binding.root.setOnClickListener{}
