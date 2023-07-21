@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".UI.Gift.GiftFriendFragment"
+    tools:ignore="ContentDescription, HardcodedText">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_b_i_t" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_bold"
+                android:text="선택한 친구 "
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_bold"
+                android:text="0"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/container1"
+            android:name="com.appcenter.favor.UI.Gift.GiftFriendSelectedEmptyFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_bold"
+                android:text="친구 "
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_bold"
+                android:text="0"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/poly_round_rectangle"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="12dp"
+                android:padding="10dp"
+                android:src="@drawable/icon_default_search" />
+
+            <EditText
+                android:id="@+id/edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/tmp_transparent"
+                android:imeOptions="actionSearch"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:paddingStart="14dp"
+                tools:ignore="LabelFor,RtlSymmetry" />
+
+            <ImageView
+                android:id="@+id/edit_sub"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="12dp"
+                android:src="@drawable/icon_default_remove"
+                android:translationX="-40dp"
+                android:visibility="gone"
+                app:tint="@color/explain" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -20,6 +20,10 @@
         <item name="android:fontFamily">@font/pretendard_bold</item>
     </style>
 
+    <style name="Theme.Favor.Bold.Gift" parent="Theme.Favor.Bold">
+        <item name="android:textSize">20sp</item>
+    </style>
+
     <style name="Theme.Favor.ModalStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/poly_upper_round_rectangle</item>
     </style>

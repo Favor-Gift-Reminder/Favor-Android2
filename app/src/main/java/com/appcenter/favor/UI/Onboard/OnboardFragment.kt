@@ -29,6 +29,10 @@ class OnboardFragment : Fragment() {
             override fun handleOnBackPressed() {
                 if (page != 0) prevPage()
                 else parentContext.finish()
+                binding.btn.apply {
+                    text = ""
+                    backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.white)
+                }
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(this, onBackPressed)
@@ -56,6 +60,7 @@ class OnboardFragment : Fragment() {
             else parentFragmentManager.beginTransaction()
                 .replace(parentContext.binding.container.id, LoginMainFragment())
                 .commit()
+
             if (page == 2) binding.btn.apply {
                 text = "시작하기"
                 backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.main)

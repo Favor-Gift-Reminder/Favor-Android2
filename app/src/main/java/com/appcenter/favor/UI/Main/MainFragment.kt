@@ -11,6 +11,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.core.view.forEach
 import com.appcenter.favor.MainActivity
 import com.appcenter.favor.R
+import com.appcenter.favor.UI.Gift.GiftFragment
 import com.appcenter.favor.UI.Home.HomeFragment
 import com.appcenter.favor.UI.Mypage.MypageFragment
 import com.appcenter.favor.databinding.FragmentMainBinding
@@ -46,7 +47,10 @@ class MainFragment : Fragment() {
         binding = FragmentMainBinding.inflate(inflater, container, false)
 
         binding.fab.setOnClickListener {
-
+            parentFragmentManager.beginTransaction()
+                //.setCustomAnimations(R.anim.slide_in_bottom, 0)
+                .add(binding.container.id, GiftFragment())
+                .commit()
         }
 
         init_appBar()
@@ -55,11 +59,11 @@ class MainFragment : Fragment() {
     }
 
     private fun init_appBar() {
-        val dp_24 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24F, requireContext().resources.displayMetrics)
+        val dp_12 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 12F, requireContext().resources.displayMetrics)
         val bar = binding.bar.background as MaterialShapeDrawable
         bar.shapeAppearanceModel = bar.shapeAppearanceModel.toBuilder()
-            .setTopLeftCorner(CornerFamily.ROUNDED, dp_24)
-            .setTopRightCorner(CornerFamily.ROUNDED, dp_24)
+            .setTopLeftCorner(CornerFamily.ROUNDED, dp_12)
+            .setTopRightCorner(CornerFamily.ROUNDED, dp_12)
             .build()
 
         binding.nav.menu.forEach {
