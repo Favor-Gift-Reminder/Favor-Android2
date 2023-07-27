@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import com.appcenter.favor.MainActivity
 import com.appcenter.favor.R
+import com.appcenter.favor.UI.Reminder.ReminderFragment
 import com.appcenter.favor.databinding.FragmentGiftBinding
 
 class GiftFragment : Fragment() {
@@ -42,6 +43,13 @@ class GiftFragment : Fragment() {
         binding = FragmentGiftBinding.inflate(inflater, container, false)
 
         init_toolbar()
+        binding.btnSelectFriend.setOnClickListener{
+            parentContext.supportFragmentManager.beginTransaction()
+                .add(parentContext.binding.container.id, GiftFriendFragment())
+                .commit()
+        }
+        binding.btnSelectDate.setOnClickListener {  }
+        val
         binding.root.setOnClickListener{}
         return binding.root
     }

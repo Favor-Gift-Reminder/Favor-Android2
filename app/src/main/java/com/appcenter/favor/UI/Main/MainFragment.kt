@@ -48,13 +48,11 @@ class MainFragment : Fragment() {
         binding = FragmentMainBinding.inflate(inflater, container, false)
 
         binding.fab.setOnClickListener {
-<<<<<<< HEAD
+
             parentFragmentManager.beginTransaction()
                 //.setCustomAnimations(R.anim.slide_in_bottom, 0)
                 .add(binding.container.id, GiftFragment())
                 .commit()
-=======
->>>>>>> serverInteraction
         }
 
         init_appBar()
