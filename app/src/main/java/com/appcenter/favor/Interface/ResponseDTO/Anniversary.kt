@@ -5,5 +5,7 @@ data class Anniversary(
     val anniversaryNo: Int,
     val anniversaryTitle: String,
     val isPinned: Boolean,
-    val userNo: Int
+    val userNo: Int,
+    val createAt: String,
+    val modifiedAt: String
 )

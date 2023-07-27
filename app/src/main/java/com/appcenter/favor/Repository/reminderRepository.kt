@@ -35,8 +35,8 @@ class reminderRepository {
         })
     }
 
-    fun addReminder(anniversaryNo : Int, userNo: Int,param: GetDataCallBack<Reminder>){
-        val call = Dr.reminderService.addReminder(anniversaryNo,userNo)
+    fun addReminder(anniversaryNo : Int,param: GetDataCallBack<Reminder>){
+        val call = Dr.reminderService.addReminder(anniversaryNo)
         call.enqueue(object :Callback<Reminder>{
             override fun onResponse(call: Call<Reminder>, response: Response<Reminder>) {
                 param.onSuccess(response.body())

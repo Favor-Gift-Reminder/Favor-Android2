@@ -1,14 +1,15 @@
 package com.nise.favor_android.Interface.ResponseDTO
 
 data class Friend(
-    val anniversaryList: List<Anniversary>,
-    val favorList: List<String>,
+    val anniversaryNoList: List<Any>,
+    val favorList: List<Any>,
     val friendMemo: String,
     val friendName: String,
     val friendNo: Int,
     val friendUserNo: Int,
-    val giftList: List<Gift>,
-    val isUser: Boolean,
-    val reminderList: List<Reminder>,
+    val givenGift: Int,
+    val receivedGift: Int,
+    val reminderList: List<Any>,
+    val totalGift: Int,
     val userNo: Int
 )

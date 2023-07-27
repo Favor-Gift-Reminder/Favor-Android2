@@ -13,6 +13,7 @@ import com.appcenter.favor.MainActivity
 import com.appcenter.favor.R
 import com.appcenter.favor.UI.Home.HomeFragment
 import com.appcenter.favor.UI.Mypage.MypageFragment
+import com.appcenter.favor.UI.Profile.ProfileAgreeFragment
 import com.appcenter.favor.databinding.FragmentMainBinding
 import com.google.android.material.shape.CornerFamily
 import com.google.android.material.shape.MaterialShapeDrawable
@@ -46,7 +47,6 @@ class MainFragment : Fragment() {
         binding = FragmentMainBinding.inflate(inflater, container, false)
 
         binding.fab.setOnClickListener {
-
         }
 
         init_appBar()

@@ -26,9 +26,8 @@ interface ReminderService {
         @Body reminderUpdateDTO: reminderUpdateDTO
     ):Call<Reminder>
 
-    @POST("/reminders/add/{userNo}/{anniversaryNo}")
+    @POST("/reminders/add//{anniversaryNo}")
     fun addReminder(
-        @Path("userNo") userNo:Int,
         @Path("anniversaryNo") anniversaryNo:Int
     ):Call<Reminder>
 

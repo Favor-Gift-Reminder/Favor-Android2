@@ -1,5 +1,6 @@
 package com.nise.favor_android.Interface.Service
 
+import com.appcenter.favor.Interface.ResponseDTO.GiftResult
 import com.nise.favor_android.Interface.GiftDTO.GiftRequestDTO
 import com.nise.favor_android.Interface.GiftDTO.GiftUpdateDTO
 import com.nise.favor_android.Interface.ResponseDTO.*
@@ -7,29 +8,35 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface GiftService {
-    @GET("/gifts")
-    fun allCheckGift(): Call<User>
+    @GET("gifts/admin")
+    fun allCheckGift(): Call<GiftResult>
 
-    @GET("/gifts/{giftNo}")
+    @GET("gifts/{giftNo}")
     fun checkGift(
         @Path("giftNo") giftNo: Int
-    ): Call<Friend>
+    ): Call<GiftResult>
 
-    @DELETE("/gifts/{giftNo}")
+    @DELETE("gifts/{giftNo}")
     fun deleteGift(
         @Path("giftNo") giftNo: Int
-    ):Call<User>
+    ):Call<GiftResult>
 
     @Headers("Content-Type: application/json")
-    @PATCH("/gifts/{giftNo}")
+    @PATCH("gifts/{giftNo}")
     fun changeGift(
         @Path("giftNo") giftNo: Int,
         @Body GiftUpdateDto: GiftUpdateDTO
-    ):Call<Friend>
+    ):Call<GiftResult>
 
-    @POST("/gifts/{userNo}")
+    @POST("gifts")
     fun createGift(
-        @Body GiftRequestDTO:GiftRequestDTO,
-        @Path("userNo") userNo: Int
-    ):Call<Gift>
+        @Body GiftRequestDTO:GiftRequestDTO
+    ):Call<GiftResult>
+
+    @PATCH("gifts/pin/{giftNo}")
+    fun pinnedGift(
+        @Path("giftNo") giftNo: Int
+    ):Call<GiftResult>
+
+
 }

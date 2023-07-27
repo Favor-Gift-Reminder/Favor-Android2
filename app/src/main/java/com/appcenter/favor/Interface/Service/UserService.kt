@@ -1,5 +1,7 @@
 package com.nise.favor_android.Interface.Service
 
+import com.appcenter.favor.Interface.ResponseDTO.signIn
+import com.appcenter.favor.Interface.ResponseDTO.userResult
 import com.nise.favor_android.Interface.ResponseDTO.Reminder
 import com.nise.favor_android.Interface.ResponseDTO.User
 import com.nise.favor_android.Interface.UserDTO.userUpdateDTO
@@ -11,77 +13,86 @@ import retrofit2.http.*
 
 interface UserService {
 
-    @GET("users/{userNo}")
+    @GET("users")
     fun chechUser(
-        @Path("userNo") userNo: Int
-    ):Call<User>
+        @Header("token") token: String
+    ):Call<userResult>
     @POST("users/sign-up")
     fun requestLogin(
         @Body loginRequest: LoginRequest
-    ) : Call<User>
+    ) : Call<userResult>
 
-    @Headers("Content-Type: application/json")
+    @POST("users/sign-in")
+    fun Login(
+        @Body loginRequest: LoginRequest
+    ) : Call<signIn>
+
     @PATCH("users/profile")
     fun makeProfile(
-        @Body profileMake: ProfileMake,
-        @Query("userNo") value : Int
-    ): Call<User>
+        @Header("token") token: String,
+        @Body profileMake: ProfileMake
+    ): Call<userResult>
 
-    @Headers("Content-Type: application/json")
-    @PATCH("users/{userNo}")
+    @PATCH("users")
     fun repairUser(
-        @Body userUpdateDTO: userUpdateDTO,
-        @Path("userNo") userMo : Int
+        @Header("token") token: String,
+        @Body userUpdateDTO: userUpdateDTO
     ): Call<User>
 
-    @GET("users/friend-list/{userNo}")
+    @GET("users/friend-list")
     fun friendList(
-        @Path("userNo") userNo: Int
+        @Header("token") token: String
     ): Call<User>
 
-    @GET("users/gift-by-category/{userNo}/{category}")
+    @GET("users/gift-by-category/{category}")
     fun giftByCategory(
-        @Path("category") category : String,
-        @Path("userNo") userNo: Int
+        @Header("token") token: String,
+        @Path("category") category : String
     ): Call<User>
 
-    @GET("users/gift-by-emotion/{userNo}/{emotion}")
+    @GET("users/gift-by-emotion/{emotion}")
     fun giftByEmotion(
-        @Path("emotion") emotion:String,
-        @Path("userNo") userNo:Int
+        @Header("token") token: String,
+        @Path("emotion") emotion:String
     ): Call<User>
 
-    @GET("users/gift-by-name/{userNo}/{giftName}")
+    @GET("users/gift-by-name/{giftName}")
     fun giftByName(
-        @Path("giftName") giftName: String,
-        @Path("userNo") userNo: Int
+        @Header("token") token: String,
+        @Path("giftName") giftName: String
     ): Call<User>
 
-    @GET("users/gift-list/{userNo}")
+    @GET("users/gift-list")
     fun giftList(
-        @Path("userNo") userNo: Int
+        @Header("token") token: String
     ):Call<User>
 
-    @GET("users/id/{userId}")
+    @GET("users/id")
     fun idList(
+        @Header("token") token: String,
         @Path("userId") userId:String
     ): Call<User>
 
     @PATCH("users/password")
     fun changePassword(
+        @Header("token") token: String,
         @Body passwordDto: passwordDto
     ): Call<User>
 
-    @GET("users/reminder-list/{userNo}")
+    @GET("users/reminder-list")
     fun reminderList(
-        @Path("userNo") userNo:Int
+        @Header("token") token: String
     ): Call<User>
 
-    @GET("users/reminder-list/{userNo}/{year}/{month}")
+    @GET("users/reminder-list/{year}/{month}")
     fun filterReminder(
+        @Header("token") token: String,
         @Path("month") month: Int,
-        @Path("userNo") userMo: Int,
         @Path("year") year:Int
-
     ): Call<Reminder>
+
+    @DELETE("users")
+    fun deletUser(
+        @Header("token") token: String
+    ):Call<User>
 }

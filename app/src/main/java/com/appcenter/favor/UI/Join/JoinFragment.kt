@@ -1,22 +1,24 @@
 package com.appcenter.favor.UI.Join
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import com.appcenter.favor.Interface.ResponseDTO.signIn
+import com.appcenter.favor.Interface.ResponseDTO.userResult
 import com.appcenter.favor.MainActivity
 import com.appcenter.favor.UI.Profile.ProfileCreateFragment
 import com.appcenter.favor.databinding.FragmentJoinBinding
-import com.nise.favor_android.Interface.ResponseDTO.User
 import com.nise.favor_android.Login.LoginRequest
 import com.nise.favor_android.Repository.userRepository
 
 class JoinFragment : Fragment() {
     private lateinit var binding: FragmentJoinBinding
-
+    lateinit var pref : SharedPreferences
     private lateinit var parentContext: MainActivity
     private lateinit var onBackPressed: OnBackPressedCallback
     override fun onAttach(context: Context) {
@@ -44,16 +46,25 @@ class JoinFragment : Fragment() {
     ): View {
         binding = FragmentJoinBinding.inflate(inflater, container, false)
         var repo = userRepository()
+
         binding.btnNext.setOnClickListener {
+
             val loginRequest = LoginRequest(
                 binding.email.text.toString().trim(),
                 binding.password.text.toString().trim()
             )
-            repo.postRegisterForm(loginRequest,object : userRepository.GetDataCallBack<User>{
-                override fun onSuccess(data: User?) {
-                    parentFragmentManager.beginTransaction()
-                        .add(parentContext.binding.container.id, ProfileCreateFragment())
-                        .commit()
+            repo.postRegisterForm(loginRequest,object : userRepository.GetDataCallBack<userResult>{
+                override fun onSuccess(data: userResult?) {
+                    repo.Login(loginRequest,object : userRepository.GetDataCallBack<signIn>{
+                        override fun onSuccess(data: signIn?) {
+                            parentFragmentManager.beginTransaction()
+                                .add(parentContext.binding.container.id, ProfileCreateFragment())
+                                .commit()
+                        }
+                        override fun onFailure() {
+                        }
+                    })
+
                 }
                 override fun onFailure() {
                 }

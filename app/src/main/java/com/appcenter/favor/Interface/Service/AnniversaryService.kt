@@ -1,5 +1,6 @@
 package com.nise.favor_android.Interface.Service
 
+import com.appcenter.favor.Interface.ResponseDTO.AnniversaryResult
 import com.nise.favor_android.Interface.AnniversaryDTO.anniversaryRequest
 import com.nise.favor_android.Interface.AnniversaryDTO.anniversaryUpdateRequest
 import com.nise.favor_android.Interface.ResponseDTO.Anniversary
@@ -10,22 +11,29 @@ interface AnniversaryService {
     @GET("anniversaries/{anniversaryNo}")
     fun checkAnniversary(
         @Path("anniversaryNo") anniversaryNo: Int
-    ):Call<Anniversary>
+    ):Call<AnniversaryResult>
 
     @DELETE("anniversaries/{anniversaryNo}")
     fun deleteAnniversary(
         @Path("anniversaryNo") anniversaryNo: Int
-    ):Call<Anniversary>
+    ):Call<AnniversaryResult>
 
     @PATCH("anniversaries/{anniversaryrNo}")
     fun changeAnniversary(
         @Body anniversaryUpdateRequest: anniversaryUpdateRequest,
         @Path("anniversaryrNo") anniversaryrNo: Int
-    ):Call<Anniversary>
+    ):Call<AnniversaryResult>
 
-    @POST("anniversaries/{userNo}")
+    @POST("anniversaries")
     fun createAnniversary(
-        @Body anniversaryRequest: anniversaryRequest,
-        @Path("userNo") userNo: Int
-    ):Call<Anniversary>
+        @Body anniversaryRequest: anniversaryRequest
+    ):Call<AnniversaryResult>
+
+    @GET("anniversaries/admin")
+    fun getAllAnniversary():Call<AnniversaryResult>
+
+    @PATCH("anniversaries/pin/{anniversaryNo}")
+    fun pinChangeAnniversary(
+        @Path("anniversaryNo") anniversaryNo: Int
+    ):Call<AnniversaryResult>
 }

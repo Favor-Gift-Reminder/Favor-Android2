@@ -1,6 +1,10 @@
 package com.nise.favor_android.Repository
 
 import android.util.Log
+import com.appcenter.favor.App
+import com.appcenter.favor.Interface.ResponseDTO.signIn
+import com.appcenter.favor.Interface.ResponseDTO.userResult
+import com.appcenter.favor.UserData
 import com.nise.favor_android.Interface.ResponseDTO.Reminder
 import com.nise.favor_android.Interface.ResponseDTO.User
 import com.nise.favor_android.Interface.Retrofit
@@ -14,33 +18,63 @@ import retrofit2.Response
 
 class userRepository {
     private val Dr = Retrofit
-    fun postRegisterForm(loginRequest: LoginRequest, param : GetDataCallBack<User>) {
+    fun postRegisterForm(loginRequest: LoginRequest, param : GetDataCallBack<userResult>) {
         val call = Dr.userService.requestLogin(loginRequest)
-        call.enqueue(object : Callback<User> {
-            override fun onResponse(call: Call<User>, response: Response<User>) {
+        call.enqueue(object : Callback<userResult> {
+            override fun onResponse(call: Call<userResult>, response: Response<userResult>) {
+                param.onSuccess(response.body())
+            }
+            override fun onFailure(call: Call<userResult>, t: Throwable) {
+            }
+        })
+    }
+    fun Login(loginRequest: LoginRequest, param: GetDataCallBack<signIn>){
+        val call = Dr.userService.Login(loginRequest)
+        call.enqueue(object : Callback<signIn>{
+            override fun onResponse(call: Call<signIn>, response: Response<signIn>) {
+                App.userData.setAccessToken(response.body()?.data?.token)
+                param.onSuccess(response.body())
+            }
+
+            override fun onFailure(call: Call<signIn>, t: Throwable) {
+            }
+
+        })
+    }
+
+    fun makeProfileForm(token: String,profileMake: ProfileMake, param : GetDataCallBack<userResult>){
+
+        val call = Dr.userService.makeProfile(token,profileMake)
+        call.enqueue(object : Callback<userResult> {
+            override fun onResponse(call: Call<userResult>, response: Response<userResult>) {
                 Log.d("log",response.body().toString())
                 param.onSuccess(response.body())
             }
-            override fun onFailure(call: Call<User>, t: Throwable) {
+            override fun onFailure(call: Call<userResult>, t: Throwable) {
             }
         })
     }
 
-    fun makeProfileForm(profileMake: ProfileMake, userNo: Int, param : GetDataCallBack<User>){
+    fun checkUser(token: String,param:GetDataCallBack<userResult>){
+        val call = Dr.userService.chechUser(token)
 
-        val call = Dr.userService.makeProfile(profileMake, userNo)
-        call.enqueue(object : Callback<User> {
-            override fun onResponse(call: Call<User>, response: Response<User>) {
+        call.enqueue(object :Callback<userResult>{
+            override fun onResponse(
+                call: Call<userResult>,
+                response: Response<userResult>
+            ) {
                 Log.d("log",response.body().toString())
                 param.onSuccess(response.body())
             }
-            override fun onFailure(call: Call<User>, t: Throwable) {
+
+            override fun onFailure(call: Call<userResult>, t: Throwable){
             }
+
         })
     }
 
-    fun checkUser(userNo: Int,param:GetDataCallBack<User>){
-        val call = Dr.userService.chechUser(userNo)
+    fun changeUser(token: String,userUpdateDTO: userUpdateDTO,param: GetDataCallBack<User>) {
+        val call =Dr.userService.repairUser(token,userUpdateDTO)
 
         call.enqueue(object :Callback<User>{
             override fun onResponse(
@@ -51,35 +85,16 @@ class userRepository {
                 param.onSuccess(response.body())
             }
 
-            override fun onFailure(call: Call<User>, t: Throwable){
-            }
-
-        })
-    }
-
-    fun changeUser(userUpdateDTO: userUpdateDTO,userNo: Int,param: GetDataCallBack<User>) {
-        val call =Dr.userService.repairUser(userUpdateDTO,userNo)
-
-        call.enqueue(object :Callback<User>{
-            override fun onResponse(
-                call: Call<User>,
-                response: Response<User>
-            ) {
-                Log.d("log",response.body().toString())
-                param.onSuccess(response.body())
-            }
-
             override fun onFailure(call: Call<User>, t: Throwable) {
             }
         })
     }
 
-    fun checkFriend(userNo: Int,param: GetDataCallBack<User>){
-        val call = Dr.userService.friendList(userNo)
+    fun checkFriend(token: String,param: GetDataCallBack<User>){
+        val call = Dr.userService.friendList(token)
         call.enqueue(object : Callback<User>{
             override fun onResponse(call: Call<User>, response: Response<User>
             ) {
-
                 param.onSuccess(response.body())
             }
             override fun onFailure(call: Call<User>, t: Throwable) {
@@ -87,8 +102,8 @@ class userRepository {
         })
     }
 
-    fun checkGiftByCategory(catagory: String, userNo: Int,param: GetDataCallBack<User>){
-        val call = Dr.userService.giftByCategory(catagory,userNo)
+    fun checkGiftByCategory(token: String,catagory: String,param: GetDataCallBack<User>){
+        val call = Dr.userService.giftByCategory(token,catagory)
         call.enqueue(object : Callback<User>{
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 param.onSuccess(response.body())
@@ -100,8 +115,8 @@ class userRepository {
         })
     }
 
-    fun checkGiftByEmotion(emotion: String,userNo: Int,param : GetDataCallBack<User>){
-        val call = Dr.userService.giftByEmotion(emotion,userNo)
+    fun checkGiftByEmotion(token: String,emotion: String,param : GetDataCallBack<User>){
+        val call = Dr.userService.giftByEmotion(token,emotion)
         call.enqueue(object :Callback<User>{
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 param.onSuccess(response.body())
@@ -113,8 +128,8 @@ class userRepository {
         })
     }
 
-    fun checkGiftByName(giftName: String,userNo: Int,param : GetDataCallBack<User>){
-        val call = Dr.userService.giftByName(giftName, userNo)
+    fun checkGiftByName(token: String,giftName: String,param : GetDataCallBack<User>){
+        val call = Dr.userService.giftByName(token,giftName)
         call.enqueue(object : Callback<User>{
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 param.onSuccess(response.body())
@@ -125,8 +140,8 @@ class userRepository {
         })
     }
 
-    fun checkAllGift(userNo: Int,param : GetDataCallBack<User>){
-        val call = Dr.userService.giftList(userNo)
+    fun checkAllGift(token: String,param : GetDataCallBack<User>){
+        val call = Dr.userService.giftList(token)
         call.enqueue(object :Callback<User>{
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 param.onSuccess(response.body())
@@ -138,8 +153,8 @@ class userRepository {
         })
     }
 
-    fun checkUserById(userId: String,param: GetDataCallBack<User>){
-        val call = Dr.userService.idList(userId)
+    fun checkUserById(token: String,userId: String,param: GetDataCallBack<User>){
+        val call = Dr.userService.idList(token,userId)
         call.enqueue(object : Callback<User>{
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 param.onSuccess(response.body())
@@ -150,8 +165,8 @@ class userRepository {
 
         })
     }
-    fun changePassword(passwordDto : passwordDto,param: GetDataCallBack<User>) {
-        val call = Dr.userService.changePassword(passwordDto)
+    fun changePassword(token: String,passwordDto : passwordDto,param: GetDataCallBack<User>) {
+        val call = Dr.userService.changePassword(token,passwordDto)
         call.enqueue(object :Callback<User>{
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 param.onSuccess(response.body())
@@ -163,8 +178,8 @@ class userRepository {
         })
     }
 
-    fun checkAllReminder(userNo: Int,param:GetDataCallBack<User>){
-        val call = Dr.userService.reminderList(userNo)
+    fun checkAllReminder(token: String,param:GetDataCallBack<User>){
+        val call = Dr.userService.reminderList(token)
         call.enqueue(object :Callback<User>{
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 param.onSuccess(response.body())
@@ -176,8 +191,8 @@ class userRepository {
         })
     }
 
-    fun checkReminderByFilter(month:Int,userNo:Int,year:Int,param:GetDataCallBack<Reminder>){
-        val call = Dr.userService.filterReminder(month,userNo,year)
+    fun checkReminderByFilter(token: String,month:Int,year:Int,param:GetDataCallBack<Reminder>){
+        val call = Dr.userService.filterReminder(token,month,year)
         call.enqueue(object :Callback<Reminder>{
             override fun onResponse(call: Call<Reminder>, response: Response<Reminder>) {
                 param.onSuccess(response.body())
@@ -185,6 +200,18 @@ class userRepository {
 
             override fun onFailure(call: Call<Reminder>, t: Throwable) {
             }
+        })
+    }
+
+    fun deleteUser(token: String,param:GetDataCallBack<User>){
+        val call = Dr.userService.deletUser(token)
+        call.enqueue(object : Callback<User>{
+            override fun onResponse(call: Call<User>, response: Response<User>) {
+            }
+
+            override fun onFailure(call: Call<User>, t: Throwable) {
+            }
+
         })
     }
     interface GetDataCallBack<T> {

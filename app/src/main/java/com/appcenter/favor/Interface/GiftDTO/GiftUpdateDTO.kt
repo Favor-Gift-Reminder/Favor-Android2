@@ -6,7 +6,6 @@ data class GiftUpdateDTO(
     val giftMemo: String,
     val category: String,
     val emotion: String,
-    val isPinned: Boolean,
     val isGiven: Boolean,
     val friendNoList: List<Int>
 )
