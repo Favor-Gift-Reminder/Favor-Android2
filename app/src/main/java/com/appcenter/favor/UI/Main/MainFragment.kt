@@ -14,6 +14,7 @@ import com.appcenter.favor.R
 import com.appcenter.favor.UI.Gift.GiftFragment
 import com.appcenter.favor.UI.Home.HomeFragment
 import com.appcenter.favor.UI.Mypage.MypageFragment
+import com.appcenter.favor.UI.Profile.ProfileAgreeFragment
 import com.appcenter.favor.databinding.FragmentMainBinding
 import com.google.android.material.shape.CornerFamily
 import com.google.android.material.shape.MaterialShapeDrawable
@@ -47,10 +48,13 @@ class MainFragment : Fragment() {
         binding = FragmentMainBinding.inflate(inflater, container, false)
 
         binding.fab.setOnClickListener {
+<<<<<<< HEAD
             parentFragmentManager.beginTransaction()
                 //.setCustomAnimations(R.anim.slide_in_bottom, 0)
                 .add(binding.container.id, GiftFragment())
                 .commit()
+=======
+>>>>>>> serverInteraction
         }
 
         init_appBar()

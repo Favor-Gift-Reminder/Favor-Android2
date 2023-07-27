@@ -7,10 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import com.appcenter.favor.Interface.ResponseDTO.signIn
 import com.appcenter.favor.MainActivity
 import com.appcenter.favor.UI.Main.MainFragment
 import com.appcenter.favor.UI.Password.PasswordInputEmailFragment
+import com.appcenter.favor.UserData
 import com.appcenter.favor.databinding.FragmentLoginBinding
+import com.nise.favor_android.Login.LoginRequest
+import com.nise.favor_android.Repository.userRepository
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
@@ -41,11 +45,22 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
-
+        var repo = userRepository()
         binding.btnLoginFavor.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(parentContext.binding.container.id, MainFragment())
-                .commit()
+            val loginRequest = LoginRequest(
+                binding.email.text.toString().trim(),
+                binding.password.text.toString().trim()
+            )
+            repo.Login(loginRequest,object : userRepository.GetDataCallBack<signIn>{
+                override fun onSuccess(data: signIn?) {
+                    parentFragmentManager.beginTransaction()
+                        .replace(parentContext.binding.container.id, MainFragment())
+                        .commit()
+                }
+                override fun onFailure() {
+                }
+            })
+
         }
 
         binding.btnFindPassword.setOnClickListener {
