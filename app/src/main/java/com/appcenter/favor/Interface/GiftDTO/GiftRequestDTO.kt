@@ -1,5 +1,7 @@
 package com.nise.favor_android.Interface.GiftDTO
 
+import com.nise.favor_android.Interface.ResponseDTO.Friend
+
 data class GiftRequestDTO(
     val category: String,
     val emotion: String,

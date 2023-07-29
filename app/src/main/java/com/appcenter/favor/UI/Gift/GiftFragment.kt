@@ -7,10 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import com.appcenter.favor.Interface.ResponseDTO.GiftResult
 import com.appcenter.favor.MainActivity
 import com.appcenter.favor.R
+import com.appcenter.favor.UI.Home.HomeFragment
+import com.appcenter.favor.UI.Profile.ProfileCreateFragment
 import com.appcenter.favor.UI.Reminder.ReminderFragment
 import com.appcenter.favor.databinding.FragmentGiftBinding
+import com.nise.favor_android.Interface.GiftDTO.GiftRequestDTO
+import com.nise.favor_android.Interface.ResponseDTO.Friend
+import com.nise.favor_android.Repository.giftRepository
 
 class GiftFragment : Fragment() {
     private lateinit var binding: FragmentGiftBinding
@@ -49,7 +55,22 @@ class GiftFragment : Fragment() {
                 .commit()
         }
         binding.btnSelectDate.setOnClickListener {  }
-        val
+        val list = MutableList<Int>(3, {i -> i})
+        val giftRequest = GiftRequestDTO(
+            "a","b", list,"a","a","a",false,true
+        )
+        val repo = giftRepository()
+        binding.toolbar.sub1.setOnClickListener {
+            repo.createGift(giftRequest,object : giftRepository.GetDataCallBack<GiftResult>{
+                override fun onSuccess(data: GiftResult?) {
+                    parentFragmentManager.beginTransaction()
+                        .add(parentContext.binding.container.id, HomeFragment())
+                        .commit()
+                }
+                override fun onFailure() {
+                }
+            })
+        }
         binding.root.setOnClickListener{}
         return binding.root
     }
