@@ -40,7 +40,9 @@ class GiftFriendFragment : Fragment() {
         binding = FragmentGiftFriendBinding.inflate(inflater, container, false)
         init_toolbar()
         binding.toolbar.sub1.setOnClickListener {
-
+            parentFragmentManager.beginTransaction()
+                .remove(this@GiftFriendFragment)
+                .commit()
         }
         return binding.root
     }
