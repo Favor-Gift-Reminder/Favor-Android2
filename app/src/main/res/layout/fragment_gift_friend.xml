@@ -106,5 +106,11 @@
                 android:visibility="gone"
                 app:tint="@color/explain" />
         </LinearLayout>
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/container2"
+            android:name="com.appcenter.favor.UI.Gift.GiftFriendListFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp" />
     </LinearLayout>
 </LinearLayout>

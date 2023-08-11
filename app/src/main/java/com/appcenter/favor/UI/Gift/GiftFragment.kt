@@ -50,8 +50,20 @@ class GiftFragment : Fragment() {
         init_toolbar()
         val giftName = binding.giftName.text
         binding.btnSelectFriend.setOnClickListener{
-            parentContext.supportFragmentManager.beginTransaction()
-                .add(parentContext.binding.container.id, GiftFriendFragment())
+            val giftFriendFragment = GiftFriendFragment()
+            val supportFragmentManager = requireActivity().supportFragmentManager
+            supportFragmentManager.setFragmentResultListener(
+                "REQUEST",
+                viewLifecycleOwner
+            ) { resultKey, bundle ->
+                if (resultKey == "REQUEST") {
+                    val friend = bundle.getString("SELECT_FRIEND")
+                    binding.btnSelectFriend.text = friend
+                    binding.btnSelectFriend.setTextColor(ContextCompat.getColor(requireActivity(), R.color.icon))
+                }
+            }
+            parentFragmentManager.beginTransaction()
+                .add(parentContext.binding.container.id, MainFragment())
                 .commit()
         }
         binding.btnSelectDate.setOnClickListener {
