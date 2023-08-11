@@ -18,7 +18,6 @@ class giftRepository {
         val call = Dr.giftService.checkGift(giftNo)
         call.enqueue(object : Callback<GiftResult>{
             override fun onResponse(call: Call<GiftResult>, response: Response<GiftResult>) {
-                TODO("Not yet implemented")
             }
 
             override fun onFailure(call: Call<GiftResult>, t: Throwable) {
@@ -60,11 +59,10 @@ class giftRepository {
         val call = Dr.giftService.createGift(GiftRequestDto)
         call.enqueue(object : Callback<GiftResult>{
             override fun onResponse(call: Call<GiftResult>, response: Response<GiftResult>) {
-                TODO("Not yet implemented")
+                param.onSuccess(response.body())
             }
 
             override fun onFailure(call: Call<GiftResult>, t: Throwable) {
-                TODO("Not yet implemented")
             }
 
         })

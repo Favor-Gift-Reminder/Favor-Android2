@@ -39,6 +39,9 @@ class GiftFriendFragment : Fragment() {
     ): View {
         binding = FragmentGiftFriendBinding.inflate(inflater, container, false)
         init_toolbar()
+        binding.toolbar.sub1.setOnClickListener {
+
+        }
         return binding.root
     }
 
@@ -46,6 +49,6 @@ class GiftFriendFragment : Fragment() {
         binding.toolbar.back.setOnClickListener { onBackPressed.handleOnBackPressed() }
         binding.toolbar.back.setImageResource(R.drawable.icon_arrow_left)
         binding.toolbar.icon.setImageResource(R.drawable.icon_default_friend)
-        binding.toolbar.sub1.hint = "등록"
+        binding.toolbar.sub1.hint = "완료"
     }
 }

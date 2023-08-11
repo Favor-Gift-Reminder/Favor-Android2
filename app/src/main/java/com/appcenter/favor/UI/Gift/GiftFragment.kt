@@ -7,15 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.core.content.ContextCompat
 import com.appcenter.favor.Interface.ResponseDTO.GiftResult
 import com.appcenter.favor.MainActivity
 import com.appcenter.favor.R
 import com.appcenter.favor.UI.Home.HomeFragment
-import com.appcenter.favor.UI.Profile.ProfileCreateFragment
-import com.appcenter.favor.UI.Reminder.ReminderFragment
+import com.appcenter.favor.UI.Main.MainFragment
 import com.appcenter.favor.databinding.FragmentGiftBinding
 import com.nise.favor_android.Interface.GiftDTO.GiftRequestDTO
-import com.nise.favor_android.Interface.ResponseDTO.Friend
 import com.nise.favor_android.Repository.giftRepository
 
 class GiftFragment : Fragment() {
@@ -49,22 +48,38 @@ class GiftFragment : Fragment() {
         binding = FragmentGiftBinding.inflate(inflater, container, false)
 
         init_toolbar()
+        val giftName = binding.giftName.text
         binding.btnSelectFriend.setOnClickListener{
             parentContext.supportFragmentManager.beginTransaction()
                 .add(parentContext.binding.container.id, GiftFriendFragment())
                 .commit()
         }
-        binding.btnSelectDate.setOnClickListener {  }
+        binding.btnSelectDate.setOnClickListener {
+            val datePickerFragment = DatePickerFragment()
+            val supportFragmentManager = requireActivity().supportFragmentManager
+            supportFragmentManager.setFragmentResultListener(
+                "REQUEST_KEY",
+                viewLifecycleOwner
+            ) { resultKey, bundle ->
+                if (resultKey == "REQUEST_KEY") {
+                    val date = bundle.getString("SELECTED_DATE")
+                    binding.btnSelectDate.text = date
+                    binding.btnSelectDate.setTextColor(ContextCompat.getColor(requireActivity(), R.color.icon))
+                }
+            }
+            // show
+            datePickerFragment.show(supportFragmentManager, "DatePickerFragment")
+        }
         val list = MutableList<Int>(3, {i -> i})
         val giftRequest = GiftRequestDTO(
-            "a","b", list,"a","a","a",false,true
+            "a","b", list,binding.btnSelectDate.toString(),"a", giftName.toString(),false,true
         )
         val repo = giftRepository()
         binding.toolbar.sub1.setOnClickListener {
             repo.createGift(giftRequest,object : giftRepository.GetDataCallBack<GiftResult>{
                 override fun onSuccess(data: GiftResult?) {
                     parentFragmentManager.beginTransaction()
-                        .add(parentContext.binding.container.id, HomeFragment())
+                        .add(parentContext.binding.container.id, MainFragment())
                         .commit()
                 }
                 override fun onFailure() {
