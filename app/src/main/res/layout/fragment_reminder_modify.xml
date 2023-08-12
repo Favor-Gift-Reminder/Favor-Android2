@@ -49,39 +49,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:fontFamily="@font/pretendard_bold"
-                android:text="받을 사람"
-                android:textSize="18sp" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="4dp"
-                    android:text="친구 선택"
-                    android:textColor="@color/explain" />
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:padding="4dp"
-                    android:src="@drawable/icon_arrow_right"
-                    app:tint="@color/explain" />
-            </LinearLayout>
-
-            <include layout="@layout/component_divider" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="15dp"
-                android:fontFamily="@font/pretendard_bold"
                 android:text="날짜"
                 android:textSize="18sp" />
 
@@ -93,6 +60,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/reminderSelectDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="4dp"
@@ -181,11 +149,40 @@
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
+            </LinearLayout>
 
-                <Switch
+            <include layout="@layout/component_divider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/pretendard_bold"
+                android:text="받을 사람"
+                android:layout_marginTop="40dp"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/reminderSelectFriend"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:text="친구 선택"
+                    android:textColor="@color/explain" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:padding="4dp"
+                    android:src="@drawable/icon_arrow_right"
+                    app:tint="@color/explain" />
             </LinearLayout>
 
             <include layout="@layout/component_divider" />

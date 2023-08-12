@@ -63,7 +63,7 @@ class GiftFragment : Fragment() {
                 }
             }
             parentFragmentManager.beginTransaction()
-                .add(parentContext.binding.container.id, MainFragment())
+                .add(parentContext.binding.container.id, GiftFriendFragment())
                 .commit()
         }
         binding.btnSelectDate.setOnClickListener {

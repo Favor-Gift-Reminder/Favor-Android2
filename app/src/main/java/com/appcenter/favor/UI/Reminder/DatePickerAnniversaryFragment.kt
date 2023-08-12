@@ -1,4 +1,4 @@
-package com.appcenter.favor.UI.Gift
+package com.appcenter.favor.UI.Reminder
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-class DatePickerFragment: DialogFragment(), DatePickerDialog.OnDateSetListener {
+class DatePickerAnniversaryFragment: DialogFragment(), DatePickerDialog.OnDateSetListener {
     private val calendar = Calendar.getInstance()
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
