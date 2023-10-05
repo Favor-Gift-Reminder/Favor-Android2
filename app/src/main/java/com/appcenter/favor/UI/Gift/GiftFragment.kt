@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.widget.TooltipCompat
 import androidx.core.content.ContextCompat
 import com.appcenter.favor.Interface.ResponseDTO.GiftResult
 import com.appcenter.favor.MainActivity
@@ -46,7 +47,6 @@ class GiftFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentGiftBinding.inflate(inflater, container, false)
-
         init_toolbar()
 
 

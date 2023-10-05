@@ -30,7 +30,6 @@ class GivenGiftFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_given_gift, container, false)
         val giftName = binding.giftName.text
 
