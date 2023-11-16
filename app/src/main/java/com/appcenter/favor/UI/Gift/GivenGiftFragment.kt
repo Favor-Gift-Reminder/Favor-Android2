@@ -30,7 +30,7 @@ class GivenGiftFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_given_gift, container, false)
+        binding = FragmentGivenGiftBinding.inflate(inflater,container,false)
         val giftName = binding.giftName.text
 
         binding.apply {
@@ -78,6 +78,7 @@ class GivenGiftFragment : Fragment() {
                 "a","b", list,binding.btnSelectDate.toString(),"a", giftName.toString(),false,true
             )
         }
+        return binding.root
     }
 
 

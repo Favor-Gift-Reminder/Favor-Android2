@@ -24,6 +24,7 @@
             android:src="@drawable/icon_arrow_left" />
 
         <TextView
+            android:id="@+id/dateYear"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -39,6 +40,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dateMonth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="12dp"

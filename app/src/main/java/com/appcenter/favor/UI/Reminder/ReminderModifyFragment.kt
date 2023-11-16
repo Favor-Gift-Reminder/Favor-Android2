@@ -61,7 +61,6 @@ class ReminderModifyFragment : Fragment() {
                 datePickerFragment.show(supportFragmentManager, "DatePickerFragment")
             }
             reminderSelectFriend.setOnClickListener {
-                val giftFriendFragment = GiftFriendFragment()
                 val supportFragmentManager = requireActivity().supportFragmentManager
                 supportFragmentManager.setFragmentResultListener(
                     "REQUEST",

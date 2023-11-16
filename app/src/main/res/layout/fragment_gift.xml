@@ -19,7 +19,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:paddingBottom="74dp">
 
@@ -49,13 +49,13 @@
                     android:layout_height="match_parent"
                     android:text="    준 선물" />
             </com.google.android.material.tabs.TabLayout>
-            <androidx.fragment.app.FragmentContainerView
+
+            <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/gift"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:layout="@layout/fragment_recieved_gift">
+                android:layout_height="match_parent">
 
-            </androidx.fragment.app.FragmentContainerView>
+            </androidx.viewpager2.widget.ViewPager2>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

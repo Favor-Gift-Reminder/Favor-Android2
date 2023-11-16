@@ -28,7 +28,7 @@ class RecievedGiftFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recieved_gift, container, false)
+        binding = FragmentRecievedGiftBinding.inflate(inflater,container,false)
         val giftName = binding.giftName.text
 
         binding.apply {
@@ -76,6 +76,7 @@ class RecievedGiftFragment : Fragment() {
                 "a","b", list,binding.btnSelectDate.toString(),"a", giftName.toString(),false,true
             )
         }
+        return binding.root
     }
 
 }
