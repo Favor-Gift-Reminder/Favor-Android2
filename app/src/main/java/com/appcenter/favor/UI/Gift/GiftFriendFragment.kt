@@ -40,7 +40,7 @@ class GiftFriendFragment : Fragment() {
         binding = FragmentGiftFriendBinding.inflate(inflater, container, false)
         init_toolbar()
         val giftFriend = Bundle()
-        giftFriend.putString("SELECT_FRIEND",binding.container1.toString())
+        giftFriend.putString("REQUEST",binding.container1.toString())
         binding.toolbar.sub1.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .remove(this@GiftFriendFragment)

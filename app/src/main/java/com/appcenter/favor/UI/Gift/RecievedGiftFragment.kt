@@ -1,5 +1,6 @@
 package com.appcenter.favor.UI.Gift
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.appcenter.favor.MainActivity
 import com.appcenter.favor.R
 import com.appcenter.favor.databinding.FragmentGivenGiftBinding
@@ -16,9 +19,22 @@ import com.nise.favor_android.Interface.GiftDTO.GiftRequestDTO
 
 class RecievedGiftFragment : Fragment() {
     private lateinit var binding: FragmentRecievedGiftBinding
-
     private lateinit var parentContext: MainActivity
     private lateinit var onBackPressed: OnBackPressedCallback
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        parentContext = context as MainActivity
+        onBackPressed = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                parentFragmentManager.beginTransaction()
+                    .remove(this@RecievedGiftFragment)
+                    .commit()
+            }
+
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this, onBackPressed)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -29,7 +45,6 @@ class RecievedGiftFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentRecievedGiftBinding.inflate(inflater,container,false)
-        val giftName = binding.giftName.text
 
         binding.apply {
             btnSelectFriend.setOnClickListener {
@@ -51,7 +66,7 @@ class RecievedGiftFragment : Fragment() {
                     }
                 }
                 parentFragmentManager.beginTransaction()
-                    .add(parentContext.binding.container.id, GiftFriendFragment())
+                    .add(R.id.container,giftFriendFragment)
                     .commit()
             }
 
@@ -72,11 +87,10 @@ class RecievedGiftFragment : Fragment() {
                 datePickerFragment.show(supportFragmentManager, "DatePickerFragment")
             }
             val list = MutableList<Int>(3, {i -> i})
-            val giftRequest = GiftRequestDTO(
-                "a","b", list,binding.btnSelectDate.toString(),"a", giftName.toString(),false,true
-            )
+
         }
         return binding.root
     }
+
 
 }

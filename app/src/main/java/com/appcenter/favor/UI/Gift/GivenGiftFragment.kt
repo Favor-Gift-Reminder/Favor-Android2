@@ -53,7 +53,7 @@ class GivenGiftFragment : Fragment() {
                     }
                 }
                 parentFragmentManager.beginTransaction()
-                    .add(parentContext.binding.container.id, GiftFriendFragment())
+                    .add(R.id.container,giftFriendFragment)
                     .commit()
             }
 

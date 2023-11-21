@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginMainFragment">
+    <fragment
+        android:id="@+id/loginMainFragment"
+        android:name="com.appcenter.favor.UI.LogIn.LoginMainFragment"
+        android:label="fragment_login_main"
+        tools:layout="@layout/fragment_login_main" >
+        <action
+            android:id="@+id/action_loginMainFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_loginMainFragment_to_joinFragment"
+            app:destination="@id/joinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.appcenter.favor.UI.LogIn.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/joinFragment"
+        android:name="com.appcenter.favor.UI.Join.JoinFragment"
+        android:label="fragment_join"
+        tools:layout="@layout/fragment_join" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.appcenter.favor.UI.Main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/giftFragment"
+        android:name="com.appcenter.favor.UI.Gift.GiftFragment"
+        android:label="fragment_gift"
+        tools:layout="@layout/fragment_gift" >
+        <action
+            android:id="@+id/action_giftFragment_to_giftFriendFragment"
+            app:destination="@id/giftFriendFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/giftFriendFragment"
+        android:name="com.appcenter.favor.UI.Gift.GiftFriendFragment"
+        android:label="fragment_gift_friend"
+        tools:layout="@layout/fragment_gift_friend" />
+    <fragment
+        android:id="@+id/anniversaryFragment"
+        android:name="com.appcenter.favor.UI.Anniversary.AnniversaryFragment"
+        android:label="fragment_anniversary"
+        tools:layout="@layout/fragment_anniversary" />
+</navigation>
